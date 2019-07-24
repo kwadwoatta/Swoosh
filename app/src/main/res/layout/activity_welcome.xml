@@ -37,11 +37,13 @@
             android:text="ON GOING ALL OUT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="98dp" android:id="@+id/textView3" android:textColor="@android:color/white"
+            android:id="@+id/textView3" android:textColor="@android:color/white"
             android:fontFamily="@font/montserrat" android:textSize="22sp"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" android:textStyle="bold"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView2" android:textStyle="bold" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
     <TextView
-            android:text="Find a team in your city, & dominate the league"
+            android:text="Find a team in your city, &amp; dominate the league"
             android:layout_width="264dp"
             android:layout_height="44dp"
             android:id="@+id/textView4" android:textColor="@android:color/white"
