@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SkillActivity">
+        tools:context=".Controller.SkillActivity">
 
     <ImageView
             android:id="@+id/imageView5"
@@ -52,30 +52,40 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5"
             android:orientation="horizontal">
+
         <ToggleButton
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/swoosh_toggle"
-                android:textOff="@string/beginner"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textOn="@string/beginner"
-                android:textColor="@android:color/white"
-                android:text="@string/beginner"/>
+            android:id="@+id/beginnerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/swoosh_toggle"
+            android:onClick="beginnerBtnClicked"
+            android:text="@string/beginner"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textOff="@string/beginner"
+            android:textOn="@string/beginner"
+            android:textSize="18sp" />
+
         <ToggleButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/button5" android:layout_weight="1"
-                android:layout_marginStart="16dp" android:textOn="@string/baller"
-                android:background="@drawable/swoosh_toggle" android:textColor="@android:color/white"
-                android:textOff="@string/baller" android:textAllCaps="false" android:textSize="18sp"
-                android:text="@string/baller"/>
+            android:id="@+id/ballerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/swoosh_toggle"
+            android:onClick="ballerBtnClicked"
+            android:text="@string/baller"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textOff="@string/baller"
+            android:textOn="@string/baller"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/finishBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -83,6 +93,7 @@
         android:layout_marginBottom="32dp"
         android:background="@drawable/swoosh_button"
         android:fontFamily="@font/montserrat"
+        android:onClick="finishBtnClicked"
         android:text="@string/finish"
         android:textColor="@android:color/white"
         android:textSize="18sp"

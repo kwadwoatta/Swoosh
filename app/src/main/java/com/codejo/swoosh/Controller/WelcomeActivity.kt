@@ -1,8 +1,8 @@
-package com.codejo.swoosh
+package com.codejo.swoosh.Controller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.codejo.swoosh.R
 import kotlinx.android.synthetic.main.activity_welcome.*
 
 class MainActivity : BaseActivity() {
