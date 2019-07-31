@@ -1,10 +1,11 @@
-package com.codejo.swoosh.Controller
+package com.codejo.swoosh.controller
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.codejo.swoosh.Model.Player
 import com.codejo.swoosh.R
 import com.codejo.swoosh.Utilities.EXTRA_LEAGUE
+import com.codejo.swoosh.Utilities.EXTRA_PLAYER
 import com.codejo.swoosh.Utilities.EXTRA_SKILL
 import kotlinx.android.synthetic.main.activity_finish.*
 
@@ -14,12 +15,8 @@ class FinishActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish)
 
-        val league = intent.getStringExtra(EXTRA_LEAGUE)
-        val skill = intent.getStringExtra(EXTRA_SKILL)
+        val player = intent.getParcelableExtra<Player>(EXTRA_PLAYER)
 
-        finishText.text = "Looking for a $league $skill league near you..."
-
-        println(league)
-        println(skill)
+        finishText.text = "Looking for a ${player.league} ${player.skill} league near you..."
     }
 }

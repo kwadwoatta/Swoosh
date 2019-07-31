@@ -1,44 +1,43 @@
-package com.codejo.swoosh.Controller
+package com.codejo.swoosh.controller
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.codejo.swoosh.Model.Player
 import com.codejo.swoosh.Utilities.EXTRA_LEAGUE
 import com.codejo.swoosh.R
+import com.codejo.swoosh.Utilities.EXTRA_PLAYER
 import com.codejo.swoosh.Utilities.EXTRA_SKILL
 import kotlinx.android.synthetic.main.activity_skill.*
 
 class SkillActivity : BaseActivity() {
 
-    var league  = ""
-    var selectedSkill = ""
+    private lateinit var player: Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
-        league = intent.getStringExtra(EXTRA_LEAGUE)!!
-        println(league)
+        player = intent.getParcelableExtra(EXTRA_PLAYER)
     }
 
     fun beginnerBtnClicked(view: View) {
         beginnerBtn.isChecked = true
         ballerBtn.isChecked = false
 
-        selectedSkill = beginnerBtn.text.toString()
+        player.skill = beginnerBtn.text.toString()
     }
 
     fun ballerBtnClicked(view: View) {
         ballerBtn.isChecked = true
         beginnerBtn.isChecked = false
 
-        selectedSkill = ballerBtn.text.toString()
+        player.skill = ballerBtn.text.toString()
     }
 
     fun finishBtnClicked(view: View) {
-        if (selectedSkill != "") {
-            Intent(this, FinishActivity::class.java).putExtra(EXTRA_LEAGUE, league).also {
-                it.putExtra(EXTRA_SKILL, selectedSkill)
+        if (player.skill != "") {
+            Intent(this, FinishActivity::class.java).putExtra(EXTRA_PLAYER, player).also {
                 startActivity(it)
             }
         } else {
