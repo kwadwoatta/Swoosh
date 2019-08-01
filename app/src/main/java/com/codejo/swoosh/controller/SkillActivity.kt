@@ -13,12 +13,24 @@ import kotlinx.android.synthetic.main.activity_skill.*
 
 class SkillActivity : BaseActivity() {
 
-    private lateinit var player: Player
+    private var player = Player("", "")
+
+//    Save player as parcelable to instance state when screen is rotated
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putParcelable(EXTRA_PLAYER, player)
+        super.onSaveInstanceState(outState)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
-        player = intent.getParcelableExtra(EXTRA_PLAYER)
+        player = intent.getParcelableExtra(EXTRA_PLAYER)!!
+    }
+
+//    retrieve player from saved instance state and continue activity
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        player = savedInstanceState.getParcelable(EXTRA_PLAYER)!!
     }
 
     fun beginnerBtnClicked(view: View) {
@@ -37,7 +49,8 @@ class SkillActivity : BaseActivity() {
 
     fun finishBtnClicked(view: View) {
         if (player.skill != "") {
-            Intent(this, FinishActivity::class.java).putExtra(EXTRA_PLAYER, player).also {
+            Intent(this, FinishActivity::class.java).also {
+                it.putExtra(EXTRA_PLAYER, player)
                 startActivity(it)
             }
         } else {

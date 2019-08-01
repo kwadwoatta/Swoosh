@@ -15,7 +15,7 @@ class FinishActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish)
 
-        val player = intent.getParcelableExtra<Player>(EXTRA_PLAYER)
+        val player = intent.getParcelableExtra<Player>(EXTRA_PLAYER)!!
 
         finishText.text = "Looking for a ${player.league} ${player.skill} league near you..."
     }
